@@ -1,5 +1,5 @@
 import React from 'react';
-import casual_dog from '../assets/casual_dog.png';
+import Facebook from '../assets/Facebook.png';
 import Google from '../assets/Google.png'
 import { TouchableOpacity, View, Text, StyleSheet, Dimensions, Image } from 'react-native';
 
@@ -7,33 +7,40 @@ const windowWidth = Dimensions.get('window').width;
 
 export default function LoginScreen({ navigation }) {
 
+    let email;
+    let senha; 
 
     return (
         
         <View style={styles.container}>
-            <Image
-            source={casual_dog}
-        />
-            <Text style={styles.title}>Ótimo dia!</Text>
-            <Text style={styles.subtext}>Como deseja entrar?</Text>
-            <TouchableOpacity style={styles.button}>
-                <View>
-                    <Image
-                    source={Google}
-                    style={{alignContent: "left", }}
-                    />
-                    <Text style={styles.buttonText}>Como deseja acessar?</Text>
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity styles={styles.button}>
-                <Text style={styles.buttonText2}>Outras Opções</Text>
-            </TouchableOpacity>
-
+            <Text style={styles.title}>Acesse</Text>
+            <Text style={styles.subtext}>Com E-mail e senha</Text>
+            <Text style={styles.subtext}>E-mail</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Digite seu E-mail"
+                keyboardType="text"
+                value={email}
+                />
+            <Text style={styles.subtext}>Senha</Text>
+            <TextInput
+                secureTextEntry={true}
+                style={styles.input}
+                placeholder="Digite sua senha"
+                keyboardType="text"
+                value={senha}
+                />  
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+container: {
+    flex: 1,
+    alignContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+},
 title: {
     fontSize: 24,
     marginBottom: 10,
@@ -42,34 +49,12 @@ subtext: {
     fontSize: 10,
     marginBottom: 25,
 },
-container: {
-    alignContent: "center",
-    textAlign: "center",
-},
-button: {
-    backgroundColor: '#14c871',
-        padding: 10,
-        borderRadius: 5,
-        alignItems: 'center',
-        width: windowWidth * 0.5,
-        margin: 10,
-},
-button2: {
-    backgroundColor: '#fff',
-        padding: 10,
-        borderRadius: 5,
-        alignItems: 'center',
-        width: windowWidth * 0.5,
-        margin: 10,
-        borderColor: '#14c871',
-        borderWidth: 20,
-},
-buttonText: {
-    color: "#fff",
-    fontSize: 10,
-},
-buttonText2: {
-    color: "#000",
-    fontSize: 10,
+input: {
+    paddingLeft: 10,
+    width: windowWidth * 0.5,
+    borderWidth: 1, 
+    borderColor: '#ccc',
+    borderRadius: 5,
+    margin: 5,
 },
 });
